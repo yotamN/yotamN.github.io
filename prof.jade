@@ -1,0 +1,16 @@
+doctype html
+html
+    head
+        include header.jade
+        
+    body
+        include location.jade
+        include sidebar.jade
+        section.main_content
+            .bg-black
+
+            nav.opened_menu
+                a(href='subprof.html') History a
+                a(href='subprof.html') History b
+
+        script(src='public/scripts/main.js')

@@ -1,0 +1,134 @@
+@mixin vertical-align
+  position: relative
+  top: 50%
+  transform: translateY(-50%)
+
+$font: 'Alef Hebrew', serif
+
+body
+    direction: rtl
+
+.sidebar
+    background-color: #5bbbff
+    position: fixed
+    top: 0
+    right: 0
+    height: 100vh
+    width: 270px
+
+
+    .logo
+        cursor: pointer
+
+
+    .search_input
+        background-color: #64abdb
+        width: 100%
+        color: white
+        padding: 5px
+        text-align: right
+        margin: 35px 0
+        font-size: 19px
+        border:
+            width: 3px 0
+            style: solid
+            color: #5b95c7
+
+
+    .menu_list
+        margin: 10px 0
+
+        > .item
+            color: white
+            font-family: $font
+            font-size: 1.7em
+            transform-style: preserve-3d
+            cursor: pointer
+            padding-right: 0
+            transition: .5s all
+
+            &:hover
+                padding-right: 20px
+
+            > img
+                +vertical-align
+                float: right
+
+            > span
+                +vertical-align
+                float: right
+                display: inline-block
+
+
+    > .sidebar_footer
+        position: fixed
+        right: 0
+        bottom: 0
+        width: 270px
+        padding: 5px
+        color: white
+        text-align: left
+        font-family: $font
+
+
+
+.location
+    position: fixed
+    top: 0
+    left: 0
+    width: calc(100vw - 270px)
+    background-color: #e1e1e1
+    font-size: 22px
+    font-family: $font
+    color: white
+    padding: 6px 3px 10px 3px
+
+    > .location_link
+        color: white
+        display: inline-block
+        padding: 0 3px
+        text-decoration: none
+
+
+
+.opened_menu
+    position: fixed
+    right: 270px
+    top: 0
+    height: 100vh
+    width: 330px
+    background-color: white
+    border-left: 3px solid #b7b7b7
+    padding: 4px
+
+    &.mini > a
+        padding: 12px
+        font-size: 1.7em
+
+    > a
+        color: #ddd
+        display: block
+        border-bottom: 2px solid #c7c7c7
+        padding: 20px
+        cursor: pointer
+        transition: .3s color
+        text:
+            decoration: none
+            align: center
+        font:
+            size: 2.8em
+            family: $font
+
+        &:hover
+            color: #b8b8b8
+
+        &:last-child
+            border-bottom: 0
+
+
+.bg-black
+    height: 100vh
+    width: calc(100vw - 270px)
+    background-color: rgba(0,0,0,0.4)
+    position: fixed
+    left: 0
