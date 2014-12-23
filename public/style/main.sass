@@ -1,75 +1,14 @@
-@mixin vertical-align
-  position: relative
-  top: 50%
-  transform: translateY(-50%)
-
 $font: 'Alef Hebrew', serif
+
+@mixin vertical-align
+    position: relative
+    top: 50%
+    transform: translateY(-50%)
+
+@import "sidebar"
 
 body
     direction: rtl
-
-.sidebar
-    background-color: #5bbbff
-    position: fixed
-    top: 0
-    right: 0
-    height: 100vh
-    width: 270px
-
-
-    .logo
-        cursor: pointer
-
-
-    .search_input
-        background-color: #64abdb
-        width: 100%
-        color: white
-        padding: 5px
-        text-align: right
-        margin: 35px 0
-        font-size: 19px
-        border:
-            width: 3px 0
-            style: solid
-            color: #5b95c7
-
-
-    .menu_list
-        margin: 10px 0
-
-        > .item
-            color: white
-            font-family: $font
-            font-size: 1.7em
-            transform-style: preserve-3d
-            cursor: pointer
-            padding-right: 0
-            transition: .5s all
-
-            &:hover
-                padding-right: 20px
-
-            > img
-                +vertical-align
-                float: right
-
-            > span
-                +vertical-align
-                float: right
-                display: inline-block
-
-
-    > .sidebar_footer
-        position: fixed
-        right: 0
-        bottom: 0
-        width: 270px
-        padding: 5px
-        color: white
-        text-align: left
-        font-family: $font
-
 
 
 .location
