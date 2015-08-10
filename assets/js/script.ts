@@ -5,9 +5,7 @@ let posts: string[] = [
 	"about-me",
 	"test-post"
 ];
-
 let current_post = posts.length - 1;
-
 let $article = $('article');
 
 function load_post() {
@@ -21,17 +19,28 @@ function load_post() {
 	});
 }
 
-$('#next-post').click(function() {
+function prev() {
+	if(current_post < posts.length - 1) {
+		current_post++;
+		load_post();
+	}
+}
+
+function next() {
 	if(current_post > 0) {
 		current_post--;
 		load_post();
 	}
-});
+}
 
-$('#prev-post').click(function() {
-	if(current_post < posts.length - 1) {
-		current_post++;
-		load_post();
+$('#next-post').click(next);
+$('#prev-post').click(prev);
+
+document.addEventListener("keydown", (e: KeyboardEvent) => {
+	if(e.keyCode === 39) {
+		next();
+	} else if(e.keyCode === 37) {
+		prev();
 	}
 });
 
