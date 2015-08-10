@@ -21,13 +21,13 @@ function load_post() {
             $next.attr('href', '#' + posts[current_post - 1]);
         }
         else {
-            $next.attr('href', '#');
+            $next.attr('href', '#' + posts[posts.length - 1]);
         }
         if (current_post < posts.length - 1) {
             $prev.attr('href', '#' + posts[current_post + 1]);
         }
         else {
-            $prev.attr('href', '#');
+            $prev.attr('href', '#' + posts[0]);
         }
         document.title = posts[current_post] + ' | ' + global_name;
     });
@@ -35,14 +35,20 @@ function load_post() {
 function prev() {
     if (current_post < posts.length - 1) {
         current_post++;
-        load_post();
     }
+    else {
+        current_post = 0;
+    }
+    load_post();
 }
 function next() {
     if (current_post > 0) {
         current_post--;
-        load_post();
     }
+    else {
+        current_post = posts.length - 1;
+    }
+    load_post();
 }
 $next.click(next);
 $prev.click(prev);
