@@ -5,7 +5,10 @@ var posts = [
     "test-post"
 ];
 var current_post = posts.length - 1;
+var global_name = 'My Blog';
 var $article = $('article');
+var $next = $('#next-post');
+var $prev = $('#prev-post');
 function load_post() {
     $.ajax({
         method: 'GET',
@@ -14,6 +17,19 @@ function load_post() {
         var content = marked(data);
         $article.html(content);
         window.location.hash = posts[current_post];
+        if (current_post > 0) {
+            $next.attr('href', '#' + posts[current_post - 1]);
+        }
+        else {
+            $next.attr('href', '#');
+        }
+        if (current_post < posts.length - 1) {
+            $prev.attr('href', '#' + posts[current_post + 1]);
+        }
+        else {
+            $prev.attr('href', '#');
+        }
+        document.title = posts[current_post] + ' | ' + global_name;
     });
 }
 function prev() {
@@ -28,8 +44,8 @@ function next() {
         load_post();
     }
 }
-$('#next-post').click(next);
-$('#prev-post').click(prev);
+$next.click(next);
+$prev.click(prev);
 document.addEventListener("keydown", function (e) {
     if (e.keyCode === 39) {
         next();
