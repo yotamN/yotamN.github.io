@@ -6,13 +6,13 @@ var sourcemaps  = require('gulp-sourcemaps');
 var ts = require('gulp-typescript');
  
 gulp.task('tsc', function () {
-  var tsResult = gulp.src('app/**/*.ts')
+  var tsResult = gulp.src('assets/js/**/*.ts')
     .pipe(ts({
         noImplicitAny: true,
         out: 'output.js',
         removeComments: true
       }));
-  return tsResult.js.pipe(gulp.dest('app'));
+  return tsResult.js.pipe(gulp.dest('assets/js'));
 });
 
 // Static Server + watching scss/html files
@@ -22,7 +22,7 @@ gulp.task('serve', ['sass'], function() {
         server: "."
     });
 
-    gulp.watch("app/**/*.ts", ['tsc']);
+    gulp.watch("assets/js/**/*.ts", ['tsc']);
     gulp.watch("assets/css/*.scss", ['sass']);
     gulp.watch("*.html").on('change', browserSync.reload);
 });
