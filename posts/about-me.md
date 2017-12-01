@@ -1,2 +1,0 @@
-# About Me
-My name is Yotam Nachum, I'm a full stack web developer for almost 6 years and this is my blog. I'm busy and lazy which is why I created this light-weight front-end only blog, who got time for creating a wordpress theme?
