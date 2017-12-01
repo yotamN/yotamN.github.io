@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Welloworld on noxale</title>
+    <link>http://localhost:1313/tags/welloworld/</link>
+    <description>Recent content in Welloworld on noxale</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Dec 2017 17:36:14 +0200</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/welloworld/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[RC3–2017 CTF] knocker</title>
+      <link>http://localhost:1313/post/rc3-2017-knocker/</link>
+      <pubDate>Fri, 01 Dec 2017 17:36:14 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/rc3-2017-knocker/</guid>
+      <description>At first, you get an IP and a port – (&amp;ldquo;18.216.59.235&amp;rdquo;,7747).
+I first tried to connect it with nc, they wrote that I need to solve their challenge and every challenge is a letter I get with the mission.
+I saw three types of missions they want me to do:
+ A text of numbers (e.g. “Two thousand, one hundred and seven”) - and I needed to translate it t number (e.</description>
+    </item>
+    
+    <item>
+      <title>[RC3-2017 CTF] Catastrophe</title>
+      <link>http://localhost:1313/post/rc3-2017-catastrophe/</link>
+      <pubDate>Fri, 01 Dec 2017 17:20:28 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/rc3-2017-catastrophe/</guid>
+      <description>In the beginning, you get a Pcap file that contains 3200 packets of data. The description told us that while one friend went to somewhere and forgot his computer open, his friend took his computer and entered to sites of cat pics. He want to know more about what his friend did and luckily for him, he forgot his Wireshark on. So we know we’re searching for cat pics right now.</description>
+    </item>
+    
+  </channel>
+</rss>

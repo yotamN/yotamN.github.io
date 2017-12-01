@@ -1,24 +1,66 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Noxale</title>
-    <link>http://yotamn.github.io/</link>
-    <description>Recent content on Noxale</description>
+    <title>noxale</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on noxale</description>
     <generator>Hugo -- gohugo.io</generator>
-    <managingEditor>youremail@domain.com (Some Person)</managingEditor>
-    <webMaster>youremail@domain.com (Some Person)</webMaster>
-    <lastBuildDate>Fri, 01 Dec 2017 14:42:49 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 01 Dec 2017 18:12:59 +0200</lastBuildDate>
     
-	<atom:link href="http://yotamn.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Old School Cool - Writeup by blvckp</title>
-      <link>http://yotamn.github.io/post/old-school-cool/</link>
-      <pubDate>Fri, 01 Dec 2017 14:42:49 +0200</pubDate>
-      <author>youremail@domain.com (Some Person)</author>
-      <guid>http://yotamn.github.io/post/old-school-cool/</guid>
-      <description>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</description>
+      <title>Rc3 2017 Science Class</title>
+      <link>http://localhost:1313/post/rc3-2017-science-class/</link>
+      <pubDate>Fri, 01 Dec 2017 18:12:59 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/rc3-2017-science-class/</guid>
+      <description>The Mission:
+This is going to be a great year!
+Barely five minutes into chemistry and your friend passes you this note inviting you to a party!
+What do they want you to bring?
+We easily can recognize the &amp;ldquo;Periodic Table&amp;rdquo; in the PDF file, so we combine the table with the PDF and got a list of elements
+Be, S, Ga, Se, Er.
+after some combinations we guess the string &amp;ldquo;BeErGaSeS&amp;rdquo;</description>
+    </item>
+    
+    <item>
+      <title>[RC3-2017 CTF] An Affinity for Caesar Salad</title>
+      <link>http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/</link>
+      <pubDate>Fri, 01 Dec 2017 18:02:57 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/</guid>
+      <description>The Mission:
+Decrypt me! RC3-2017{GUPNCH_AITIL}
+We understand that we need to use two common ciphers, Affine and Caesar.
+We brute forcing the string!
+GUPNCH &amp;mdash; affine &amp;mdash;&amp;gt; GARDEN
+AITIL &amp;mdash; caesar &amp;mdash;&amp;gt; SALAD
+Together we got a great salad :)
+The Flag:
+RC3-2017{GARDEN_SALAD}</description>
+    </item>
+    
+    <item>
+      <title>[RC3–2017 CTF] knocker</title>
+      <link>http://localhost:1313/post/rc3-2017-knocker/</link>
+      <pubDate>Fri, 01 Dec 2017 17:36:14 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/rc3-2017-knocker/</guid>
+      <description>At first, you get an IP and a port – (&amp;ldquo;18.216.59.235&amp;rdquo;,7747).
+I first tried to connect it with nc, they wrote that I need to solve their challenge and every challenge is a letter I get with the mission.
+I saw three types of missions they want me to do:
+ A text of numbers (e.g. “Two thousand, one hundred and seven”) - and I needed to translate it t number (e.</description>
+    </item>
+    
+    <item>
+      <title>[RC3-2017 CTF] Catastrophe</title>
+      <link>http://localhost:1313/post/rc3-2017-catastrophe/</link>
+      <pubDate>Fri, 01 Dec 2017 17:20:28 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/rc3-2017-catastrophe/</guid>
+      <description>In the beginning, you get a Pcap file that contains 3200 packets of data. The description told us that while one friend went to somewhere and forgot his computer open, his friend took his computer and entered to sites of cat pics. He want to know more about what his friend did and luckily for him, he forgot his Wireshark on. So we know we’re searching for cat pics right now.</description>
     </item>
     
   </channel>

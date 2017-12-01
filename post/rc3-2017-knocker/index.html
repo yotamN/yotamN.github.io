@@ -5,21 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>noxale</title>
-  <meta property="og:title" content="noxale" />
-  <meta name="twitter:title" content="noxale" />
+  <title>[RC3–2017 CTF] knocker</title>
+  <meta property="og:title" content="[RC3–2017 CTF] knocker" />
+  <meta name="twitter:title" content="[RC3–2017 CTF] knocker" />
+  <meta name="description" content="Writeup by WelloWorld">
+  <meta property="og:description" content="Writeup by WelloWorld">
+  <meta name="twitter:description" content="Writeup by WelloWorld">
   <meta name="author" content="noxale"/>
   <link href='http://localhost:1313/favicon.png' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="http://localhost:1313/logo.png" />
   <meta name="twitter:image" content="http://localhost:1313/logo.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="http://localhost:1313/" />
+  <meta property="og:url" content="http://localhost:1313/post/rc3-2017-knocker/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="noxale" />
 
   <meta name="generator" content="Hugo 0.30" />
-  <link rel="canonical" href="http://localhost:1313/" />
-  <link rel="alternate" href="http://localhost:1313/index.xml" type="application/rss+xml" title="noxale">
+  <link rel="canonical" href="http://localhost:1313/post/rc3-2017-knocker/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="noxale">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -155,14 +158,21 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>noxale</h1>
+            <div class="post-heading">
+              <h1>[RC3–2017 CTF] knocker</h1>
                 
                   
-                    <hr class="small">
-                    <span class="page-subheading">pwning makes noxāle</span>
+                    <h2 class="post-subheading">Writeup by WelloWorld</h2>
                   
                 
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (245 mots)
+  
+</span>
+
+
                 
             </div>
           </div>
@@ -173,181 +183,52 @@
 
 
     
-  <div role="main" class="container">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>At first, you get an IP and a port – (&ldquo;18.216.59.235&rdquo;,7747).<br />
+I first tried to connect it with nc, they wrote that I need to solve their
+challenge and every challenge is a letter I get with the mission.<br />
+I saw three types of missions they want me to do:</p>
+
+<ol>
+<li>A text of numbers (e.g. “Two thousand, one hundred and seven”) - and I needed
+to translate it t number (e.g. 2107).</li>
+<li>A math function, to be ran on python like: <code>floor(((109 &lt;&lt; 31) - 38) % -148)
+% 65535</code> (Answer is 65453).</li>
+<li>A number to be translated to Text(what I thought in first sight).</li>
+</ol>
+
+<p>Then, I tried to send the answer to the server in the same connection, and it didn’t work.
+After a bit of thinking and friend’s helping, I suddenly remember what ‘knocker’ means. Port knocking is way of checking ports on the server by sending them some data and wait for them to answer, So in this case, the ports are the numbers we get, so after translating by our format (text of numbers = port, math function=port, and number=port(Just take that number as a port)) we are going to try to connect these ports by sockets from our code. The connections with the server are little bit tricky because sometimes the message come without the letter or the mission and then the code needs to wait. This is the code I used for get the flag:</p>
+
+<p><img src="first_code.png" alt="First Part of Code" />
+<img src="second_code.png" alt="Second part of Code" /></p>
+
+<p>The flag is: RC3-2017{i-am-the-0ne-wh0-kn0ckz}</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
         
-
-        <div class="posts-list">
-          
-          
-            <article class="post-preview">
-              <a href="http://localhost:1313/post/rc3-2017-science-class/">
-                <h2 class="post-title">Rc3 2017 Science Class</h2>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 1 min (82 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  The Mission:
-This is going to be a great year!
-Barely five minutes into chemistry and your friend passes you this note inviting you to a party!
-What do they want you to bring?
-We easily can recognize the &ldquo;Periodic Table&rdquo; in the PDF file, so we combine the table with the PDF and got a list of elements
-Be, S, Ga, Se, Er.
-after some combinations we guess the string &ldquo;BeErGaSeS&rdquo;
-                  <a href="http://localhost:1313/post/rc3-2017-science-class/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-                <span class="post-meta">
-                
-                  #<a href="http://localhost:1313tags/rc3-2017/">rc3 2017</a>&nbsp;
-                
-                  #<a href="http://localhost:1313tags/ninjailbreak/">ninjailbreak</a>&nbsp;
-                
-                </span>
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/">
-                <h2 class="post-title">[RC3-2017 CTF] An Affinity for Caesar Salad</h2>
-                
-                  <h3 class="post-subtitle">
-                  Writeup by Ninjailbreak
-                  </h3>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 1 min (43 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  <p><strong>The Mission:</strong><br />
-Decrypt me! RC3-2017{GUPNCH_AITIL}</p>
-
-<p>We understand that we need to use two common ciphers, Affine and Caesar.<br />
-We brute forcing the string!</p>
-
-<p>GUPNCH &mdash; <a href="http://www.dcode.fr/affine-cipher">affine</a> &mdash;&gt; GARDEN<br />
-AITIL &mdash; <a href="http://www.dcode.fr/caesar-cipher">caesar</a> &mdash;&gt; SALAD</p>
-
-<p>Together we got a great salad :)</p>
-
-<p><strong>The Flag:</strong><br />
-RC3-2017{GARDEN_SALAD}</p>
-
-                
-              </div>
-
-              
-                <span class="post-meta">
-                
-                  #<a href="http://localhost:1313tags/rc3-2017/">rc3 2017</a>&nbsp;
-                
-                  #<a href="http://localhost:1313tags/ninjailbreak/">ninjailbreak</a>&nbsp;
-                
-                </span>
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="http://localhost:1313/post/rc3-2017-knocker/">
-                <h2 class="post-title">[RC3–2017 CTF] knocker</h2>
-                
-                  <h3 class="post-subtitle">
-                  Writeup by WelloWorld
-                  </h3>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (245 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  At first, you get an IP and a port – (&ldquo;18.216.59.235&rdquo;,7747).
-I first tried to connect it with nc, they wrote that I need to solve their challenge and every challenge is a letter I get with the mission.
-I saw three types of missions they want me to do:
- A text of numbers (e.g. “Two thousand, one hundred and seven”) - and I needed to translate it t number (e.
-                  <a href="http://localhost:1313/post/rc3-2017-knocker/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-                <span class="post-meta">
-                
-                  #<a href="http://localhost:1313tags/rc3-2017/">rc3 2017</a>&nbsp;
-                
-                  #<a href="http://localhost:1313tags/welloworld/">WelloWorld</a>&nbsp;
-                
-                </span>
-              
-            </article>
-          
-            <article class="post-preview">
-              <a href="http://localhost:1313/post/rc3-2017-catastrophe/">
-                <h2 class="post-title">[RC3-2017 CTF] Catastrophe</h2>
-                
-                  <h3 class="post-subtitle">
-                  Writeup by WelloWorld
-                  </h3>
-                
-                
-              </a>
-
-              <span class="post-meta">
-  <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (275 mots)
-  
-</span>
-
-
-              <div class="post-entry">
-                
-                  In the beginning, you get a Pcap file that contains 3200 packets of data. The description told us that while one friend went to somewhere and forgot his computer open, his friend took his computer and entered to sites of cat pics. He want to know more about what his friend did and luckily for him, he forgot his Wireshark on. So we know we’re searching for cat pics right now.
-                  <a href="http://localhost:1313/post/rc3-2017-catastrophe/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-                <span class="post-meta">
-                
-                  #<a href="http://localhost:1313tags/rc3-2017/">rc3 2017</a>&nbsp;
-                
-                  #<a href="http://localhost:1313tags/welloworld/">WelloWorld</a>&nbsp;
-                
-                </span>
-              
-            </article>
-          
-        </div>
-
+          <li class="previous">
+            <a href="http://localhost:1313/post/rc3-2017-catastrophe/" data-toggle="tooltip" data-placement="top" title="[RC3-2017 CTF] Catastrophe">&larr; Previous Post</a>
+          </li>
         
-      </div>
+        
+          <li class="next">
+            <a href="http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/" data-toggle="tooltip" data-placement="top" title="[RC3-2017 CTF] An Affinity for Caesar Salad">Next Post &rarr;</a>
+          </li>
+        
+      </ul>
+
+
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -373,7 +254,7 @@ I saw three types of missions they want me to do:
               </li>
           
           <li>
-            <a href="http://localhost:1313/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
