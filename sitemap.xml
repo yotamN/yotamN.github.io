@@ -2,63 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://localhost:1313/post/rc3-2017-science-class/</loc>
+    <loc>http://yotamn.github.io/post/ghostred-old-school-cool/</loc>
+    <lastmod>2017-12-01T18:33:35+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://yotamn.github.io/post/rc3-2017-science-class/</loc>
     <lastmod>2017-12-01T18:12:59+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/</loc>
+    <loc>http://yotamn.github.io/post/rc3-2017-an-affinity-for-caesar-salad/</loc>
     <lastmod>2017-12-01T18:02:57+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/rc3-2017-knocker/</loc>
+    <loc>http://yotamn.github.io/post/rc3-2017-knocker/</loc>
     <lastmod>2017-12-01T17:36:14+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/rc3-2017-catastrophe/</loc>
+    <loc>http://yotamn.github.io/post/rc3-2017-catastrophe/</loc>
     <lastmod>2017-12-01T17:20:28+02:00</lastmod>
   </url>
   
   <url>
-    <loc>http://localhost:1313/categories/</loc>
+    <loc>http://yotamn.github.io/tags/blvckp/</loc>
+    <lastmod>2017-12-01T18:33:35+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/ninjailbreak/</loc>
+    <loc>http://yotamn.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yotamn.github.io/tags/ghostred-ctf/</loc>
+    <lastmod>2017-12-01T18:33:35+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yotamn.github.io/tags/ninjailbreak/</loc>
     <lastmod>2017-12-01T18:12:59+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/post/</loc>
+    <loc>http://yotamn.github.io/post/</loc>
+    <lastmod>2017-12-01T18:33:35+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yotamn.github.io/tags/rc3-2017/</loc>
     <lastmod>2017-12-01T18:12:59+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/rc3-2017/</loc>
-    <lastmod>2017-12-01T18:12:59+02:00</lastmod>
+    <loc>http://yotamn.github.io/tags/</loc>
+    <lastmod>2017-12-01T18:33:35+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/tags/</loc>
-    <lastmod>2017-12-01T18:12:59+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://localhost:1313/tags/welloworld/</loc>
+    <loc>http://yotamn.github.io/tags/welloworld/</loc>
     <lastmod>2017-12-01T17:36:14+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://localhost:1313/</loc>
-    <lastmod>2017-12-01T18:12:59+02:00</lastmod>
+    <loc>http://yotamn.github.io/</loc>
+    <lastmod>2017-12-01T18:33:35+02:00</lastmod>
     <priority>0</priority>
   </url>
   

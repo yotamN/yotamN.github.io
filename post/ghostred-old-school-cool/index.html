@@ -5,21 +5,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Ninjailbreak</title>
-  <meta property="og:title" content="Ninjailbreak" />
-  <meta name="twitter:title" content="Ninjailbreak" />
+  <title>[GhostRed CTF - Owasp Israel 2017] Old School Cool WIP!!!!</title>
+  <meta property="og:title" content="[GhostRed CTF - Owasp Israel 2017] Old School Cool WIP!!!!" />
+  <meta name="twitter:title" content="[GhostRed CTF - Owasp Israel 2017] Old School Cool WIP!!!!" />
+  <meta name="description" content="Writeup by blvckp">
+  <meta property="og:description" content="Writeup by blvckp">
+  <meta name="twitter:description" content="Writeup by blvckp">
   <meta name="author" content="noxale"/>
   <link href='http://yotamn.github.io/favicon.png' rel='icon' type='image/x-icon'/>
   <meta property="og:image" content="http://yotamn.github.io/logo.png" />
   <meta name="twitter:image" content="http://yotamn.github.io/logo.png" />
   <meta name="twitter:card" content="summary" />
-  <meta property="og:url" content="http://yotamn.github.io/tags/ninjailbreak/" />
+  <meta property="og:url" content="http://yotamn.github.io/post/ghostred-old-school-cool/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="noxale" />
 
   <meta name="generator" content="Hugo 0.30" />
-  <link rel="canonical" href="http://yotamn.github.io/tags/ninjailbreak/" />
-  <link rel="alternate" href="http://yotamn.github.io/tags/ninjailbreak/index.xml" type="application/rss+xml" title="noxale">
+  <link rel="canonical" href="http://yotamn.github.io/post/ghostred-old-school-cool/" />
+  <link rel="alternate" href="" type="application/rss+xml" title="noxale">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.7.1/katex.min.css" integrity="sha384-wITovz90syo1dJWVh32uuETPVEtGigN07tkttEqPv+uR2SE/mbQcG7ATL28aI9H0" crossorigin="anonymous">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -139,14 +142,38 @@
 
 
     
+  
+  
+  
+
+
+
+
+  
+
   <header class="header-section ">
+    
     <div class="intro-header no-img">
+      
       <div class="container">
         <div class="row">
           <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <div class="page-heading">
-              <h1>#Ninjailbreak</h1>
-              <hr class="small">
+            <div class="post-heading">
+              <h1>[GhostRed CTF - Owasp Israel 2017] Old School Cool WIP!!!!</h1>
+                
+                  
+                    <h2 class="post-subheading">Writeup by blvckp</h2>
+                  
+                
+                
+                  <span class="post-meta">
+  <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (262 mots)
+  
+</span>
+
+
+                
             </div>
           </div>
         </div>
@@ -154,102 +181,71 @@
     </div>
   </header>
 
+
     
-  <div class="container" role="main">
-    <div class="row">
-      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class="container" role="main">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      <article role="main" class="blog-post">
+        <p>At first we need to check if the executable was packed with a packer of some sort.<br />
+I’ll use “DetectItEasy” for this check:</p>
+
+<p><img src="1.png" alt="Detect It Easy Screenshot" /></p>
+
+<p>Nice, the executable isn’t packed!</p>
+
+<p>It’s now time for RE, let’s use IDA Pro. (I use the newest version - 7.0)<br />
+When I try to RE something I always open the “Strings window” first, to find
+some helpful messages which can have xrefs for important functions.</p>
+
+<p><img src="2.png" alt="Detect It Easy Screenshot" /></p>
+
+<p>Okay, there is a message about the flag!<br />
+Let’s see the instruction listing of the first xref for this message.</p>
+
+<p>I won’t show the whole structure of the program in one screenshot, only<br />
+the important part of the code. We can see that the return value of the<br />
+last function in the following screenshot is being checked.</p>
+
+<p><img src="3.png" alt="Detect It Easy Screenshot" /></p>
+
+<p>Green arrow - prints error message.<br />
+Red arrow - makes one more procedure and after it, prints the flag.</p>
+
+<p>So as you can see the buffer which was used for the user’s input will be copied,<br />
+but not the whole buffer. Only the first 16 bytes are being copied and this size<br />
+is used in more functions that I saw before. Hence, we can conclude that<br />
+the password’s length is 16 characters long.</p>
+
+<p>Okay, I want to check the first function (sub_1201000) after the string-copy:<br />
+To do this I used the Hex-Rays decompiler to understand the code better.</p>
+
+<p><img src="4.png" alt="Detect It Easy Screenshot" /></p>
+
+<p>As you can see - there is some xoring process with our input!<br />
+The xoring starts with some const 4 bytes - ‘CG4j’:</p>
+
+<p><img src="5.png" alt="Detect It Easy Screenshot" /></p>
+
+<p>Only the first 4 bytes are used for the first step of the first decryption.</p>
+
+      </article>
+
+      <ul class="pager blog-pager">
         
-        <div class="posts-list">
-          
-            <article class="post-preview">
-              <a href="http://yotamn.github.io/post/rc3-2017-science-class/">
-                <h2 class="post-title"> [RC3-2017 CTF] Science Class</h2>
-
-                
-                  <h3 class="post-subtitle">
-                    Writeup by Ninjailbreak
-                  </h3>
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on 2017-12-01
-              </p>
-              <div class="post-entry">
-                
-                  The Mission:
-This is going to be a great year!
-Barely five minutes into chemistry and your friend passes you this note inviting you to a party!
-What do they want you to bring?
-We easily can recognize the &ldquo;Periodic Table&rdquo; in the PDF file, so we combine the table with the PDF and got a list of elements
-Be, S, Ga, Se, Er.
-after some combinations we guess the string &ldquo;BeErGaSeS&rdquo;
-                  <a href="http://yotamn.github.io/post/rc3-2017-science-class/" class="post-read-more">[Read More]</a>
-                
-              </div>
-
-              
-                <span class="post-meta">
-                  
-                    #<a href="http://yotamn.github.iotags/rc3-2017/">rc3 2017</a>&nbsp;
-                  
-                    #<a href="http://yotamn.github.iotags/ninjailbreak/">ninjailbreak</a>&nbsp;
-                  
-                </span>
-              
-
-            </article>
-          
-            <article class="post-preview">
-              <a href="http://yotamn.github.io/post/rc3-2017-an-affinity-for-caesar-salad/">
-                <h2 class="post-title">[RC3-2017 CTF] An Affinity for Caesar Salad</h2>
-
-                
-                  <h3 class="post-subtitle">
-                    Writeup by Ninjailbreak
-                  </h3>
-                
-              </a>
-
-              <p class="post-meta">
-                Posted on 2017-12-01
-              </p>
-              <div class="post-entry">
-                
-                  <p><strong>The Mission:</strong><br />
-Decrypt me! RC3-2017{GUPNCH_AITIL}</p>
-
-<p>We understand that we need to use two common ciphers, Affine and Caesar.<br />
-We brute forcing the string!</p>
-
-<p>GUPNCH &mdash; <a href="http://www.dcode.fr/affine-cipher">affine</a> &mdash;&gt; GARDEN<br />
-AITIL &mdash; <a href="http://www.dcode.fr/caesar-cipher">caesar</a> &mdash;&gt; SALAD</p>
-
-<p>Together we got a great salad :)</p>
-
-<p><strong>The Flag:</strong><br />
-RC3-2017{GARDEN_SALAD}</p>
-
-                
-              </div>
-
-              
-                <span class="post-meta">
-                  
-                    #<a href="http://yotamn.github.iotags/rc3-2017/">rc3 2017</a>&nbsp;
-                  
-                    #<a href="http://yotamn.github.iotags/ninjailbreak/">ninjailbreak</a>&nbsp;
-                  
-                </span>
-              
-
-            </article>
-          
-        </div>
+          <li class="previous">
+            <a href="http://yotamn.github.io/post/rc3-2017-science-class/" data-toggle="tooltip" data-placement="top" title=" [RC3-2017 CTF] Science Class">&larr; Previous Post</a>
+          </li>
         
-      </div>
+        
+      </ul>
+
+
+      
+
     </div>
   </div>
+</div>
 
     <footer>
   <div class="container">
@@ -275,7 +271,7 @@ RC3-2017{GARDEN_SALAD}</p>
               </li>
           
           <li>
-            <a href="http://yotamn.github.io/tags/ninjailbreak/index.xml" title="RSS">
+            <a href="" title="RSS">
               <span class="fa-stack fa-lg">
                 <i class="fa fa-circle fa-stack-2x"></i>
                 <i class="fa fa-rss fa-stack-1x fa-inverse"></i>

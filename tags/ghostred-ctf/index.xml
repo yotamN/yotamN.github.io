@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ghostred Ctf on noxale</title>
+    <link>http://yotamn.github.io/tags/ghostred-ctf/</link>
+    <description>Recent content in Ghostred Ctf on noxale</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 01 Dec 2017 18:33:35 +0200</lastBuildDate>
+    
+	<atom:link href="http://yotamn.github.io/tags/ghostred-ctf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>[GhostRed CTF - Owasp Israel 2017] Old School Cool WIP!!!!</title>
+      <link>http://yotamn.github.io/post/ghostred-old-school-cool/</link>
+      <pubDate>Fri, 01 Dec 2017 18:33:35 +0200</pubDate>
+      
+      <guid>http://yotamn.github.io/post/ghostred-old-school-cool/</guid>
+      <description>At first we need to check if the executable was packed with a packer of some sort.
+I’ll use “DetectItEasy” for this check:
+Nice, the executable isn’t packed!
+It’s now time for RE, let’s use IDA Pro. (I use the newest version - 7.0)
+When I try to RE something I always open the “Strings window” first, to find some helpful messages which can have xrefs for important functions.
+Okay, there is a message about the flag!</description>
+    </item>
+    
+  </channel>
+</rss>

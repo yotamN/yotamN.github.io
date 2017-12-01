@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ninjailbreak on noxale</title>
-    <link>http://localhost:1313/tags/ninjailbreak/</link>
+    <link>http://yotamn.github.io/tags/ninjailbreak/</link>
     <description>Recent content in Ninjailbreak on noxale</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Fri, 01 Dec 2017 18:12:59 +0200</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/ninjailbreak/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://yotamn.github.io/tags/ninjailbreak/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title> [RC3-2017 CTF] Science Class</title>
-      <link>http://localhost:1313/post/rc3-2017-science-class/</link>
+      <link>http://yotamn.github.io/post/rc3-2017-science-class/</link>
       <pubDate>Fri, 01 Dec 2017 18:12:59 +0200</pubDate>
       
-      <guid>http://localhost:1313/post/rc3-2017-science-class/</guid>
+      <guid>http://yotamn.github.io/post/rc3-2017-science-class/</guid>
       <description>The Mission:
 This is going to be a great year!
 Barely five minutes into chemistry and your friend passes you this note inviting you to a party!
@@ -27,10 +27,10 @@ after some combinations we guess the string &amp;ldquo;BeErGaSeS&amp;rdquo;</des
     
     <item>
       <title>[RC3-2017 CTF] An Affinity for Caesar Salad</title>
-      <link>http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/</link>
+      <link>http://yotamn.github.io/post/rc3-2017-an-affinity-for-caesar-salad/</link>
       <pubDate>Fri, 01 Dec 2017 18:02:57 +0200</pubDate>
       
-      <guid>http://localhost:1313/post/rc3-2017-an-affinity-for-caesar-salad/</guid>
+      <guid>http://yotamn.github.io/post/rc3-2017-an-affinity-for-caesar-salad/</guid>
       <description>The Mission:
 Decrypt me! RC3-2017{GUPNCH_AITIL}
 We understand that we need to use two common ciphers, Affine and Caesar.
