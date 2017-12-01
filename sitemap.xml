@@ -3,29 +3,29 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>noxale/post/old-school-cool/</loc>
+    <loc>http://yotamn.github.io/post/old-school-cool/</loc>
     <lastmod>2017-12-01T14:42:49+02:00</lastmod>
   </url>
   
   <url>
-    <loc>noxale/categories/</loc>
+    <loc>http://yotamn.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>noxale/</loc>
-    <lastmod>2017-12-01T14:42:49+02:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>noxale/post/</loc>
+    <loc>http://yotamn.github.io/</loc>
     <lastmod>2017-12-01T14:42:49+02:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>noxale/tags/</loc>
+    <loc>http://yotamn.github.io/post/</loc>
+    <lastmod>2017-12-01T14:42:49+02:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://yotamn.github.io/tags/</loc>
     <priority>0</priority>
   </url>
   
