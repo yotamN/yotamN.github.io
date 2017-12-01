@@ -94,7 +94,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://yotamn.github.io">noxale</a>
+      <a class="navbar-brand" href="http://yotamn.github.io/">noxale</a>
     </div>
 
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -128,7 +128,7 @@
     <div class="avatar-container">
       <div class="avatar-img-border">
         
-          <a title="noxale" href="http://yotamn.github.io">
+          <a title="noxale" href="http://yotamn.github.io/">
             <img class="avatar-img" src="http://yotamn.github.io/logo.png" alt="noxale" />
           </a>
         
@@ -168,7 +168,7 @@
                 
                   <span class="post-meta">
   <i class="fa fa-calendar-o"></i>&nbsp;Posted on 2017-12-01
-  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 2 min (262 mots)
+  &nbsp;|&nbsp; <i class="fa fa-clock-o"></i> 3 min (529 mots)
   
 </span>
 
@@ -187,7 +187,9 @@
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
       <article role="main" class="blog-post">
-        <p>At first we need to check if the executable was packed with a packer of some sort.<br />
+        
+
+<p>At first we need to check if the executable was packed with a packer of some sort.<br />
 I’ll use “DetectItEasy” for this check:</p>
 
 <p><img src="1.png" alt="Detect It Easy Screenshot" /></p>
@@ -198,7 +200,7 @@ I’ll use “DetectItEasy” for this check:</p>
 When I try to RE something I always open the “Strings window” first, to find
 some helpful messages which can have xrefs for important functions.</p>
 
-<p><img src="2.png" alt="Detect It Easy Screenshot" /></p>
+<p><img src="2.png" alt="" /></p>
 
 <p>Okay, there is a message about the flag!<br />
 Let’s see the instruction listing of the first xref for this message.</p>
@@ -207,7 +209,7 @@ Let’s see the instruction listing of the first xref for this message.</p>
 the important part of the code. We can see that the return value of the<br />
 last function in the following screenshot is being checked.</p>
 
-<p><img src="3.png" alt="Detect It Easy Screenshot" /></p>
+<p><img src="3.png" alt="" /></p>
 
 <p>Green arrow - prints error message.<br />
 Red arrow - makes one more procedure and after it, prints the flag.</p>
@@ -220,14 +222,69 @@ the password’s length is 16 characters long.</p>
 <p>Okay, I want to check the first function (sub_1201000) after the string-copy:<br />
 To do this I used the Hex-Rays decompiler to understand the code better.</p>
 
-<p><img src="4.png" alt="Detect It Easy Screenshot" /></p>
+<p><img src="4.png" alt="" /></p>
 
 <p>As you can see - there is some xoring process with our input!<br />
 The xoring starts with some const 4 bytes - ‘CG4j’:</p>
 
-<p><img src="5.png" alt="Detect It Easy Screenshot" /></p>
+<p><img src="5.png" alt="" /></p>
 
 <p>Only the first 4 bytes are used for the first step of the first decryption.</p>
+
+<h3 id="the-algorithm-of-this-function">The algorithm of this function</h3>
+
+<p>For the first 4 bytes:<br />
+<img src="6.png" alt="A For Loop" /></p>
+
+<p>For the next 12 bytes:</p>
+
+<p><img src="7.png" alt="A For Loop" /></p>
+
+<p>The next step is to watch what next function does:
+<img src="8.png" alt="Screenshot of Code" /></p>
+
+<p>After a fast analysis, I understand that the function is the check function<br />
+that checks the first stage of the decryption. Of course it checks<br />
+our xored input with some const buffer. Why shouldn’t we get the buffer and<br />
+find the original key with the algorithm we found and with the const buffer?</p>
+
+<p>The const buffer is placed in a pointer which is stored in the parameter a2.<br />
+Let’s find out what character from this buffer was pushed into the stack as the<br />
+function’s parameter:</p>
+
+<p><img src="9.png" alt="" /></p>
+
+<p>(In the screenshot: Some buffer which starts from the 5th character’s offset)<br />
+Remember the previous buffer - the one which we only used its first bytes?<br />
+It is the same buffer, and now we will use the next 16 bytes of it from offset 4.<br />
+This is the buffer’s screenshot:</p>
+
+<p><img src="10.png" alt="" /></p>
+
+<p>16 bytes!<br />
+I wrote a script on python that uses the learned algorithm and gives the key for us:</p>
+
+<pre><code>
+key_hash = '\x39\x03\x03\x28\x6C\x31\x4A\x62\x5B\x44\x19\x04\x10\x0E\x70\x50'
+final = '\x7a\x44\x37\x42' # After xoring with prev. Xor key with 4 bytes
+
+for i in xrange(0, 12):
+    final += chr(ord(key_hash[i]) ^ ord(key_hash[i + 4]))
+
+print final
+</code></pre>
+
+<p>After the first decryption I got the key: zD7BU2IJ7uSfKJiT<br />
+Okay, let’s test it. Maybe it will give us the fla?</p>
+
+<p>Huh, yep! I was right:<br />
+<img src="11.png" alt="" /></p>
+
+<p>Finally the flag is: GE_CTF{AmjmsAEf}</p>
+
+<p>* About the second decryption - It’s just another xoring of this key with
+another const buffer. There’s no need to show it because it decrypts itself
+correctly.</p>
 
       </article>
 
@@ -292,7 +349,7 @@ The xoring starts with some const 4 bytes - ‘CG4j’:</p>
 
           
             &nbsp;&bull;&nbsp;
-            <a href="http://yotamn.github.io">noxale</a>
+            <a href="http://yotamn.github.io/">noxale</a>
           
         </p>
         

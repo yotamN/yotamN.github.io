@@ -20,8 +20,7 @@
 I’ll use “DetectItEasy” for this check:
 Nice, the executable isn’t packed!
 It’s now time for RE, let’s use IDA Pro. (I use the newest version - 7.0)
-When I try to RE something I always open the “Strings window” first, to find some helpful messages which can have xrefs for important functions.
-Okay, there is a message about the flag!</description>
+When I try to RE something I always open the “Strings window” first, to find some helpful messages which can have xrefs for important functions.</description>
     </item>
     
   </channel>
